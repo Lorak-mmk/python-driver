@@ -15,6 +15,8 @@
 """
 Connection pooling and host management.
 """
+from __future__ import absolute_import
+
 from concurrent.futures import Future
 from functools import total_ordering
 import logging
