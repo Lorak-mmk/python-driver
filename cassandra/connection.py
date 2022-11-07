@@ -979,6 +979,8 @@ class Connection(object):
         print(exc)
         if isinstance(exc, TypeError):
             print('DEFUNCT TYPE ERROR')
+            import traceback
+            traceback.print_stack()
         with self.lock:
             if self.is_defunct or self.is_closed:
                 return
