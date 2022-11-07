@@ -977,7 +977,7 @@ class Connection(object):
         print('DEFUNCT')
         print(self)
         print(exc)
-        if exc is TypeError:
+        if isinstance(exc, TypeError):
             print('DEFUNCT TYPE ERROR')
         with self.lock:
             if self.is_defunct or self.is_closed:
