@@ -51,6 +51,8 @@ cdef class ShardingInfo():
             return 0, None
 
         print('SHARD INFO PYX')
+        print(message.options)
+        print(type(message.options))
         print(partitioner)
         print(type(partitioner))
         return int(shard_id), ShardingInfo(shard_id, shards_count, partitioner, sharding_algorithm, sharding_ignore_msb,
