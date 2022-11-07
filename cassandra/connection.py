@@ -125,6 +125,8 @@ frame_header_v1_v2 = struct.Struct('>BbBi')
 frame_header_v3 = struct.Struct('>BhBi')
 
 
+print('CONNECTION')
+
 class EndPoint(object):
     """
     Represents the information to connect to a cassandra node.

@@ -111,6 +111,8 @@ except ImportError:
 if six.PY3:
     long = int
 
+print("CLUSTER")
+
 def _is_eventlet_monkey_patched():
     if 'eventlet.patcher' not in sys.modules:
         return False
