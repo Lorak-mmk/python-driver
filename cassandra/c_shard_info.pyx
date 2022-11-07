@@ -50,6 +50,9 @@ cdef class ShardingInfo():
             sharding_algorithm == "biased-token-round-robin" or sharding_ignore_msb):
             return 0, None
 
+        print('SHARD INFO PYX')
+        print(partitioner)
+        print(type(partitioner))
         return int(shard_id), ShardingInfo(shard_id, shards_count, partitioner, sharding_algorithm, sharding_ignore_msb,
                                            shard_aware_port, shard_aware_port_ssl)
 
