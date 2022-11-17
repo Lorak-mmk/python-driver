@@ -490,6 +490,8 @@ class ProfileManager(object):
 
     def populate(self, cluster, hosts):
         for p in self.profiles.values():
+            print(p)
+            print(p.load_balancing_policy)
             p.load_balancing_policy.populate(cluster, hosts)
 
     def check_supported(self):
