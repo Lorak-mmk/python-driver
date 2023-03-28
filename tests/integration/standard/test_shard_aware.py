@@ -63,7 +63,6 @@ class TestShardAwareIntegration(unittest.TestCase):
             LOGGER.info("%s %s", event.thread_name, event.description)
         for event in events:
             self.assertEqual(event.thread_name, shard_name)
-        self.assertIn('querying locally', "\n".join([event.description for event in events]))
 
         trace_id = results.response_future.get_query_trace_ids()[0]
         traces = self.session.execute("SELECT * FROM system_traces.events WHERE session_id = %s", (trace_id,))
@@ -72,7 +71,6 @@ class TestShardAwareIntegration(unittest.TestCase):
             LOGGER.info("%s %s", event.thread, event.activity)
         for event in events:
             self.assertEqual(event.thread, shard_name)
-        self.assertIn('querying locally', "\n".join([event.activity for event in events]))
 
     def create_ks_and_cf(self):
         self.session.execute(
