@@ -3646,6 +3646,10 @@ class ControlConnection(object):
                   "registering watchers and refreshing schema and topology",
                   connection)
 
+        is_scylla = connection.sharding_info is not None
+        if is_scylla:
+            self._uses_peers_v2 = False
+
         # use weak references in both directions
         # _clear_watcher will be called when this ControlConnection is about to be finalized
         # _watch_callback will get the actual callback from the Connection and relay it to
